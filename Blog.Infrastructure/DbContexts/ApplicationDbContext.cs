@@ -24,6 +24,6 @@ public class ApplicationDbContext : IdentityDbContext, IApplicationDbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(
-            "Server=localhost,1433;Database=SeeSharpBlog;User ID=sa;Password=P@ssw0rd;TrustServerCertificate=True");
+            "Server=localhost,1435;Database=BlogPosts;User ID=sa;Password=Fuocleclearclear!;TrustServerCertificate=True;");
     }
 }
