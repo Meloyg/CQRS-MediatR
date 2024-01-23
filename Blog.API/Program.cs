@@ -1,23 +1,18 @@
-using Ardalis.GuardClauses;
-using Blog.Infrastructure.DbContexts;
-using Microsoft.EntityFrameworkCore;
+using Blog.Application;
+using Blog.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
+
 var app = builder.Build();
-
-var connectionString = app.Configuration.GetConnectionString("DefaultConnection");
-Guard.Against.Null(connectionString, message:
-    "Connection string 'DefaultConnection' not found.");
-
-builder.Services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -28,4 +23,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapControllers();
+
 app.Run();
+

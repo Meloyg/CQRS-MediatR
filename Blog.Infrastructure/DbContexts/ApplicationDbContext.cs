@@ -26,9 +26,4 @@ public class ApplicationDbContext : IdentityDbContext, IApplicationDbContext
         optionsBuilder.UseSqlServer(
             "Server=localhost,1433;Database=SeeSharpBlog;User ID=sa;Password=P@ssw0rd;TrustServerCertificate=True");
     }
-    
-    public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
 }

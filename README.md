@@ -1,0 +1,1 @@
+﻿docker run --name sqlserver --hostname sqlserver -e ACCEPT_EULA=Y -e MSSQL_SA_PASSWORD=Fuocleclearclear! -p 1435:1433 -d mcr.microsoft.com/mssql/server
