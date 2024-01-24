@@ -21,9 +21,9 @@ public class ApplicationDbContext : IdentityDbContext, IApplicationDbContext
         base.OnModelCreating(modelBuilder);
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer(
-            "Server=localhost,1435;Database=BlogPosts;User ID=sa;Password=Fuocleclearclear!;TrustServerCertificate=True;");
-    }
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // {
+    //     optionsBuilder.UseSqlServer(
+    //         "Server=localhost,1435;Database=BlogPosts;User ID=sa;Password=Fuocleclearclear!;TrustServerCertificate=True;");
+    // }
 }
